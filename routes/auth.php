@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\RemoteLoginController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Route::middleware('guest')->group(function () {
-    Volt::route('login', 'auth.login')
+    Route::get('login', [RemoteLoginController::class, 'showLoginForm'])
         ->name('login');
+    Route::post('login', [RemoteLoginController::class, 'login'])
+        ->name('login.submit');
 
     Volt::route('register', 'auth.register')
         ->name('register');

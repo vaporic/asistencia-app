@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Http\Controllers\RemoteLoginController;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -12,6 +13,9 @@ Route::get('/', function () {
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+Route::get('remote-login', [RemoteLoginController::class, 'showLoginForm'])->name('remote.login');
+Route::post('remote-login', [RemoteLoginController::class, 'login'])->name('remote.login.submit');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
