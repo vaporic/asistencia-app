@@ -18,6 +18,9 @@
                 <flux:navlist.item icon="home" :href="route('dashboard')"
                     :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}
                 </flux:navlist.item>
+                <flux:navlist.item icon="qr-code" :href="route('qr.scan')"
+                    :current="request()->routeIs('qr.scan')" wire:navigate>{{ __('Scan QR') }}
+                </flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>
 
