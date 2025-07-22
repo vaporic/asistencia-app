@@ -199,7 +199,7 @@ return [
 
         'biometric' => false,
 
-        'camera' => false,
+        'camera' => true,
 
         'nfc' => false,
 
